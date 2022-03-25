@@ -1,0 +1,638 @@
+{% extends 'base.html' %}
+
+{% block title %}Lalo Delivery Home{% endblock %}
+
+<!-- Comienzo del bloque style -->
+{% block styles %}
+	<style type="text/css">
+		.techo{
+            background-color: #F7CC49;
+            height: 200px;
+            background: rgba(247,203,73,1);
+            background: -moz-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(247,203,73,1)), color-stop(71%, rgba(250,217,117,1)), color-stop(100%, rgba(247,203,73,1)));
+            background: -webkit-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -o-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -ms-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: linear-gradient(to right, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cb49', endColorstr='#f7cb49', GradientType=1 );
+        }
+
+        .bienvenido{
+        	font-size: 50px;
+        	height: 60px;
+        }
+
+        .somos{
+        	font-size: 25px;
+        }
+
+        .comida {
+        	padding: 6.2%;
+        }
+
+        .categoria {
+        	height: 95px;
+        	font-size: 25px;
+        	padding-top: 20px;
+        	border-radius: 20px;
+        	cursor: pointer;
+        	width: 200px;
+        }
+
+        .encendido {
+        	background-color: #3E3E3E;
+        	color: white;
+        }
+
+        .ccentrado {
+        	text-align: center;
+        }
+
+        .tproducto {
+        	text-align: center;
+        	font-size: 60px;
+        	color: #3E3E3E;
+        }
+
+        .productoscaja {
+        	padding-top: 15px;
+        }
+
+        .empresa {
+        	height: 250px;
+        	width: 250px;
+        	text-align: center;
+        	box-shadow: 10px 10px 10px #7A7D7D;
+        	cursor: pointer;
+        }
+
+        .nombrec {
+        	height: 80px;
+        }
+
+        .imagen {
+        	height: 170px;
+        	width: 250px;
+        }
+
+        .chu {
+        	height: 100px;
+        	width: 100px;
+        }
+
+        .elbotoncaja {
+        	text-align: center;
+        }
+
+        .buttontiendas {
+        	background-color: #3E3E3E;
+        	color: white;
+        	height: 75px;
+        	padding-left: 170px;
+        	padding-right: 170px;
+        	border-radius: 20px;
+        }
+
+        .laloemprendedor {
+        	background-color: #3E3E3E;
+        }
+
+        .camioncaja {
+    		padding-bottom: 25px;
+        	padding-top: 50px;
+        }
+
+        .imagenemprendedor {
+        	height: 90%;
+        	width: 115%;
+        }
+
+        .camion {
+        	height: 130px;
+        	width: 130px;
+        }
+
+        .emprendedortitulo {
+        	padding-bottom: 14px;
+        	color: #F7CC49;
+        }
+
+        .letraaa {
+        	font-size: 65px;
+        }
+
+        .textoemprendedor {
+        	color: #F7CC49;
+        	font-size: 26px;
+        	text-align: center;
+        }
+
+        .buttonconocemas {
+        	background-color: #F7CC49;
+        	width: 40%;
+        	font-size: 23px;
+        	color: black;
+        	height: 60px;
+        }
+
+        .tcnosotros {
+        	padding-bottom: 80px;
+        }
+
+        .imagentconnos {
+        	height: 450px;
+        	width: 100%;
+        	box-shadow: 10px 10px 10px #7A7D7D;
+        }
+
+        .connoscaja {
+        	padding-top: 75px;
+        }
+
+        .titulotconnos {
+        	font-size: 45px;
+        }
+
+        .textotconnos {
+        	font-size: 22px;
+        }
+
+        .buttonpostulate {
+        	background-color: #F7CC49;
+        	color: black;
+        	width: 100%;
+        	font-size: 24px;
+        	height: 65px;
+        }
+
+        .botonesconnos {
+        	font-size: 24px;
+        	color: black;
+        }
+
+        .botonconnosencendido {
+        	color: white;
+	        background-color: #3E3E3E;
+        }
+
+        .escondido {
+        	display: none;
+        }
+	</style>
+{% endblock %}
+<!-- Fin del bloque style -->
+
+<!-- Comienzo del bloque de contenido -->
+{% block content %}
+
+	<!-- Comienzo del saludo -->
+	<div class="container-fluid d-flex flex-column justify-content-center pl-5 techo">
+		<div class="row pl-3">
+			<p class="bienvenido mb-0">Bienvenido a <strong>lalo</strong></p>
+		</div>
+		<div class="row pl-4 mt-0 somos">
+			<p>Somos tu delivery de confianza</p>
+		</div>
+	</div>
+	<!-- Fin del saludo -->
+
+	<!-- Comienzo de la sección de comida -->
+	<div class="container-fluid comida">
+		<div class="row">
+
+			<!-- Comienzo de los botones -->
+			<div class="col-3">
+				<div id="botoncomidaapagado" class="row categoria apagado">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/comida-gris.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Comida</p>
+					</div>
+				</div>
+				<div id="botoncomidaencendido" class="row categoria encendido">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/comida-amarillo.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Comida</p>
+					</div>
+				</div>
+				<div id="botonfarmaciaapagado" class="row categoria apagado">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/farmacia-gris.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Farmacia</p>
+					</div>
+				</div>
+				<div id="botonfarmaciaencendido" class="row categoria encendido">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/farmacia-amarillo.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Farmacia</p>
+					</div>
+				</div>
+				<div id="botonlicoresapagado" class="row categoria apagado">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/licores-gris.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Licores</p>
+					</div>
+				</div>
+				<div id="botonlicoresencendido" class="row categoria encendido">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/licores-amarillo.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Licores</p>
+					</div>
+				</div>
+				<div id="botonexpressapagado" class="row categoria apagado">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/express-gris.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Express</p>
+					</div>
+				</div>
+				<div id="botonexpressencendido" class="row categoria encendido">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/express-amarillo.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>Express</p>
+					</div>
+				</div>
+				<div id="botongeneralapagado" class="row categoria apagado">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/general-gris.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>General</p>
+					</div>
+				</div>
+				<div id="botongeneralencendido" class="row categoria encendido">
+					<div class="col-3">
+						<img src="{{ url_for('static', filename = 'images/general-amarillo.svg') }}">
+					</div>
+					<div class="col-9 ccentrado">
+						<p>General</p>
+					</div>
+				</div>
+			</div>
+			<!-- Fin de los botones -->
+
+			<!-- Comienzo de los paneles -->
+			<div class="col-9">
+				<div class="row tproducto">
+					<div class="col">
+						<p>Comida</p>
+					</div>
+				</div>
+				<div id="panelcomida" class="row productoscaja panel">
+					<div class="col d-flex flex-wrap">
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/señor chocolatoso.png') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>El Señor Chocolatoso</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>comida 2</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>comida 3</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="panelfarmacia" class="row productoscaja escondido panel">
+					<div class="col d-flex flex-wrap">
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>farmacia 1</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>farmacia 2</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>farmacia 3</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="panellicores" class="row productoscaja escondido panel">
+					<div class="col d-flex flex-wrap">
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>licores 1</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>licores 2</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>licores 3</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="panelexpress" class="row productoscaja escondido panel">
+					<div class="col d-flex flex-wrap">
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>express 1</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>express 2</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>express 3</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="panelgeneral" class="row productoscaja escondido panel">
+					<div class="col d-flex flex-wrap">
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>general 1</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>general 2</strong></p>
+								</div>
+							</div>
+						</div>
+						<div class="container empresa mb-5">
+							<div class="row">
+								<div class="col pl-0">
+									<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+								</div>
+							</div>
+							<div class="row nombrec">
+								<div class="col d-flex justify-content-center align-items-center">
+									<p><strong>general 3</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="botonseccioncomidacaja" class="row elbotoncaja panel">
+					<div class="col d-flex justify-content-center align-items-end">
+						<button id="botonseccioncomida" type="button" class="btn btn-lg mb-0 buttontiendas">Ver más tiendas</button>
+					</div>
+				</div>
+				<div id="botonseccionfarmaciacaja" class="row elbotoncaja panel escondido">
+					<div class="col d-flex justify-content-center align-items-end">
+						<button id="botonseccionfarmacia" type="button" class="btn btn-lg mb-0 buttontiendas">Ver más tiendas</button>
+					</div>
+				</div>
+				<div id="botonseccionlicorescaja" class="row elbotoncaja panel escondido">
+					<div class="col d-flex justify-content-center align-items-end">
+						<button id="botonseccionlicores" type="button" class="btn btn-lg mb-0 buttontiendas">Ver más tiendas</button>
+					</div>
+				</div>
+				<div id="botonseccionexpresscaja" class="row elbotoncaja panel escondido">
+					<div class="col d-flex justify-content-center align-items-end">
+						<button id="botonseccionexpress" type="button" class="btn btn-lg mb-0 buttontiendas">Ver más tiendas</button>
+					</div>
+				</div>
+				<div id="botonsecciongeneralcaja" class="row elbotoncaja panel escondido">
+					<div class="col d-flex justify-content-center align-items-end">
+						<button id="botonsecciongeneral" type="button" class="btn btn-lg mb-0 buttontiendas">Ver más tiendas</button>
+					</div>
+				</div>
+			</div>
+			<!-- Fin de los paneles -->
+
+		</div>
+	</div>
+	<!-- Fin de la sección de comida -->
+
+	{% include 'plataformas.html' without context %}
+
+	<!-- Comienzo de la sección de laloemprendedor -->
+	<div class="container-fluid laloemprendedor">
+		<div class="row">
+			<div class="col-4 pr-0 d-flex align-items-center pt-md-5 pb-md-5 pt-lg-0 pb-lg-0">
+				<img class="imagenemprendedor" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+			</div>
+			<div class="col-8">
+				<div class="row camioncaja pl-xl-5 pl-md-4">
+					<div class="col d-flex justify-content-center pl-xl-4">
+						<img class="rounded-circle camion" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+					</div>
+				</div>
+				<div class="row emprendedortitulo pl-xl-5">
+					<div class="col d-flex justify-content-center flex-wrap pl-xl-4">
+						<h1 class="letraaa mb-0 pl-md-4 pl-lg-5"><strong>lalo</strong></h1>
+						<h1 class="letraaa mt-0 pl-md-4 pl-lg-0">emprendedor</h1>
+					</div>
+				</div>
+				<div class="row textoemprendedor pl-5 pr-xl-5 mb-2">
+					<div class="col pl-xl-5">
+						<div class="pl-xl-4">
+							<p class="pl-xl-5 pr-xl-5">Con nuestro servicio puedes planificar y hacer la entrega de tus productos</p>
+						</div>
+					</div>
+				</div>
+				<div class="row pl-5">
+					<div class="col d-flex justify-content-center pl-xl-4">
+						<button id="botonconocemas" type="button" class="btn btn-lg rounded-pill mb-5 buttonconocemas font-weight-bold">Conoce más</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin de la sección de laloemprendedor -->
+
+	<!-- Comienzo de trabaja con nosotros -->
+	<div class="container-fluid tcnosotros">
+		<div class="row pl-xl-5 pt-5">
+			<div class="col-4 pl-xl-5 pt-5 pr-xl-5">
+				<img class="imagentconnos" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+			</div>
+
+			<!-- Comienzo de secciones de trabaja con nosotros -->
+			<div id="tconnoscaja" class="col-5 connoscaja pr-xl-5">
+				<div class="row">
+					<div class="col">
+						<h1 class="titulotconnos text-center"><strong>Trabaja con Nosotros</strong></h1>
+					</div>
+				</div>
+				<div class="row pt-4 mb-5 pl-xl-3 pl-lg-5">
+					<div class="col textotconnos">
+						<p>Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-lg mb-0 rounded-pill buttonpostulate"><strong>Postulate aquí</strong></button>
+					</div>
+				</div>
+			</div>
+			<div id="vconnoscaja" class="col-5 connoscaja pr-xl-5 escondido">
+				<div class="row">
+					<div class="col">
+						<h1 class="titulotconnos text-center"><strong>Vende con Nosotros</strong></h1>
+					</div>
+				</div>
+				<div class="row pt-4 mb-5 pl-xl-3 pl-lg-5">
+					<div class="col textotconnos">
+						<p>Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba Prueba</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-lg mb-0 rounded-pill buttonpostulate "><strong>Postulate aquí</strong></button>
+					</div>
+				</div>
+			</div>
+			<!-- Fin de secciones de trabaja con nosotros -->
+
+			<!-- Comienzo de botones de trabaja con nosotros -->
+			<div class="col pt-5 pr-xl-5">
+				<div class="row pt-4">
+					<div class="col pl-0">
+						<button id="botontconnosencendido" type="button" class="btn btn-lg mb-3 botonesconnos botonconnosencendido">¿Quieres Trabajar con nosotros?</button>
+					</div>
+				</div>
+				<div class="row pt-4">
+					<div class="col pl-0">
+						<button id="botontconnosapagado" type="button" class="btn btn-lg mb-3 botonesconnos escondido botonconnosapagado">¿Quieres trabajar con nosotros?</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col pl-0">
+						<button id="botonvconnosencendido" type="button" class="btn btn-lg botonesconnos botonconnosencendido escondido">¿Quieres vender con nosotros?</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col pl-0">
+						<button id="botonvconnosapagado" type="button" class="btn btn-lg botonesconnos botonconnosapagado">¿Quieres vender con nosotros?</button>
+					</div>
+				</div>
+			</div>
+			<!-- Fin de botones de trabaja con nosotros -->
+		</div>
+	</div>
+	<!-- Fin de trabaja con nosotros -->
+{% endblock %}
+<!-- Fin del bloque de contenido -->
+

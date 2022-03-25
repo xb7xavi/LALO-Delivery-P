@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+
+{% block title %}Lalo Delivery empresa{% endblock %}
+
+<!-- Comienzo del bloque style -->
+{% block styles %}
+<style type="text/css">
+
+	form label {
+	  font-size: 60px;
+	}
+
+	input[type="radio"] {
+	  display: none;
+	}
+
+	label {
+	  color: white;
+	  text-shadow: 2px 2px 2px #F7CC49,
+	               -2px -2px 2px #F7CC49,
+	               2px 2px 2px #F7CC49,
+	               -2px -2px 2px #F7CC49;
+	         
+	}
+
+	.clasificacion {
+	  direction: rtl;
+	  unicode-bidi: bidi-override;
+	}
+
+	label:hover,
+	label:hover ~ label {
+	  color: orange;
+	}
+
+	input[type="radio"]:checked ~ label {
+	  color: orange;
+	}
+
+	.cajainfoempresa {
+		width: 90%;
+		height: 232px;
+		margin-top: 70px;
+		box-shadow: 10px 10px 10px #7A7D7D;
+	}
+
+	.imagenn {
+		width: 97%;
+		height: 71.7%;
+	}
+
+	.tituloproducto {
+		font-size: 48px;
+	}
+
+	.botonvaloracion {
+		color: black;
+	}
+
+	.pedidoyproductos {
+		width: 95%;
+	}
+
+	.rowpedido {
+		width: 35%;
+		height: 1100px;
+	}
+
+	.rowproductos {
+		width: 65%;
+	}
+
+	.pedido {
+		background-color: #3E3E3E;
+		border-radius: 20px;
+	}
+
+	.titulopedido {
+		color: #F7CC49;
+		width: 10%;
+	}
+
+	.listaproductos {
+		height: 1000px;
+	}
+
+	.productostexto {
+		color: white;
+		font-size: 24px;
+	}
+
+	.bordeabajo {
+		border-bottom: 1px solid #F7CC49;
+	}
+
+	.botonprocesarcaja {
+		border-top: 1px solid #F7CC49;
+	}
+
+	.botonprocesar {
+		width: 100%;
+		background-color: #F7CC49;
+		color: black;
+		font-size: 25px;
+	}
+
+	.modaltitulo {
+		font-size: 65px;
+	}
+
+	.botoncerrar {
+		color: black;
+		font-size: 40px;
+	}
+
+	.imagenmodal {
+        height: 354px;
+        width: 433px;
+        box-shadow: 10px 10px 10px #7A7D7D;
+    }
+
+    .modaltexto {
+    	font-size: 32px;
+    }
+
+    .cantidadesyprecio {
+    	background-color: #3E3E3E;
+    	margin-top: 80px;
+    	margin-right: 70px;
+    	border-radius: 20px;
+    	height: 175px;
+    }
+
+    .colorsito {
+    	color: #F7CC49;
+    }
+
+    .bordederecha {
+    	border-right: 1px solid #F7CC49;
+    	margin-bottom: 100px;
+    }
+
+    .columnacantidad {
+    	padding-left: 24%;
+    }
+
+    .columnacantidadd {
+    	padding-left: 6%;
+    }
+
+    .modaltextogrande {
+    	font-size: 70px;
+    	height: 40px;
+    }
+
+    .subirbajar {
+    	color: #3E3E3E;
+    	background-color: #F7CC49;
+    	height: 45px;
+    	width: 45px;
+    	margin-top: 41px;
+    	cursor: pointer;
+    }
+
+    #agregaralpedido {
+    	width: 40%;
+    	height: 85px;
+    	font-size: 30px;
+    }
+
+	.nombrec {
+        height: 110px;
+        padding-left: 20px;
+    }
+
+    .producto {
+       	height: 350px;
+       	width: 350px;
+        box-shadow: 10px 10px 10px #7A7D7D;
+        cursor: pointer;
+    }
+
+    .imagen {
+        height: 240px;
+        width: 350px;
+    }
+
+    .precioproducto {
+    	font-size: 36px;
+    }
+</style>
+{% endblock %}
+<!-- Fin del bloque style -->
+
+<!-- Comienzo del bloque de contenido -->
+{% block content %}
+<script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg="nest"></script>
+<div class="container-fluid cajainfoempresa">
+	<div class="row">
+		<div class="col-3 izquierda pl-0">
+			<img class="imagenn" src="{{ url_for('static', filename = 'images/imagen 4.jpeg') }}">
+		</div>
+		<div class="col-6 centro pt-4">
+			<div class="row">
+				<div class="col">
+					<h1><strong class="tituloproducto">El Señor Chocolatoso</strong></h1>
+					<p>Ave Principal las Mercedes, Caracas 1060, Miranda</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<form>
+					  <p class="clasificacion">
+					    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+					    --><label for="radio1">★</label><!--
+					    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+					    --><label for="radio2">★</label><!--
+					    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+					    --><label for="radio3">★</label><!--
+					    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+					    --><label for="radio4">★</label><!--
+					    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+					    --><label for="radio5">★</label>
+					  </p>
+					</form>
+				</div>
+				<div class="col pt-4">
+					<button type="button" class="btn btn-lg botonvaloracion">Enviar Valoración</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-3 derecha">
+			<img class="imagenn" src="{{ url_for('static', filename = 'images/señor chocolatoso.png') }}">
+		</div>
+	</div>
+</div>
+
+<p class="mt-5 mb-5 text-center"><strong>Ésto es lo que El Señor Chocolatoso tiene para ti</strong></p>
+
+<div class="container-fluid pedidoyproductos mb-5 d-flex">
+	<div class="row rowpedido mr-5">
+		<div class="col pedido">
+			<div class="row ml-4 mr-4 bordeabajo">
+				<div class="col titulopedido pb-3 pt-5 text-center">
+					<h1 class="font-weight-bold">Pedido</h1>
+				</div>
+			</div>
+			<div class="row listaproductos">
+				<div class="col pt-5">
+					<p class="productostexto">prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba prueba </p>
+				</div>
+			</div>
+			<div class="row botonprocesarcaja ml-4 mr-4 pb-5 pt-5">
+				<button type="button" class="btn btn-lg border rounded-pill botonprocesar font-weight-bold">Procesar Pedido</button>
+			</div>
+		</div>
+	</div>
+	<div class="row rowproductos">
+		<div class="col productos">
+			<div class="container d-flex flex-wrap">
+				<div class="modal fade" id="modalempresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-xl">
+				    <div class="modal-content">
+				      <div>
+				      	<div class="row pr-5">
+				      		<div class="col-9">
+				      			<h1 class="modaltitulo text-right pt-5"><strong>Super Suprema</strong></h1>
+				      		</div>
+				      		<div class="col-3 text-right pr-0 pt-3">
+				      			<button type="button" class="btn botoncerrar" data-dismiss="modal" aria-label="Close"><strong>x</strong></button>
+				      		</div>
+				      	</div>
+				      </div>
+				      <div class="modal-body mt-4">
+				        <div class="container-fluid row pr-0">
+				        	<div class="col-6">
+				        		<p class="ml-3 modaltexto">Salsa exclusiva Pizza Hut, queso mozzarella, pepperoni, topping de res, topping de cerdo, pimentones, cebolla, champiñones y aceitunas negras.</p>
+				        	</div>
+				        	<div class="col-6 pl-0 text-center">
+				        		<img class="imagenmodal" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+				        	</div>
+				        </div>
+				        <div class="row cantidadesyprecio ml-4 pt-4">
+				        	<div class="col-4 mb-4 bordederecha">
+				        		<div class="row text-center modaltexto colorsito pb-0">
+				        			<div class="col pt-0">
+				        				<p class="mb-0">Precio</p>
+				        				<p class="modaltextogrande pt-0 mt-0"><strong>$20</strong></p>
+				        			</div>
+				        		</div>
+				        	</div>
+				        	<div class="col-4 mb-4 bordederecha">
+				        		<div class="row text-center modaltexto colorsito">
+				        			<div class="col columnacantidad">
+				        				<p class="mb-0 position-absolute columnacantidadd">Cantidad</p>
+				        				<div class="d-flex position-absolute pt-4">
+				        					<i class="fas fa-chevron-down mr-4 subirbajar rounded-circle"></i>
+				        					<p class="modaltextogrande font-weight-bold">3</p>
+				        					<i class="fas fa-chevron-up ml-4 subirbajar rounded-circle"></i>
+				        				</div>
+				        			</div>
+				        		</div>
+				        	</div>
+				        	<div class="col-4 mb-4">
+				        		<div class="row text-center modaltexto colorsito pb-0">
+				        			<div class="col pt-0">
+				        				<p class="mb-0">Total</p>
+				        				<p class="modaltextogrande pt-0 mt-0 font-weight-bold">$60</p>
+				        			</div>
+				        		</div>
+				        	</div>
+				        </div>
+				        <div class="text-center pt-5 pb-5">
+				        	<button id="agregaralpedido" type="button" class="btn btn-lg border rounded-pill botonprocesar font-weight-bold">Agregar al Pedido</button>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+				<div class="container producto mb-5" data-toggle="modal" data-target="#modalempresa">
+					<div class="row">
+						<div class="col pl-0">
+							<img class="imagen" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+						</div>
+					</div>
+					<div class="row nombrec">
+						<div class="col-8 d-flex align-items-center">
+							<p><strong>Super Suprema</strong></p>
+						</div>
+						<div class="col-4 d-flex align-items-end precioproducto font-weight-bold">
+							<p>$20</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+<!-- Fin del bloque de contenido -->

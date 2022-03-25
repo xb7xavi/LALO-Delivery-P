@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrate en Lalo Delivery{% endblock %}
+
+<!-- Comienzo del bloque style -->
+{% block styles %}
+	<style type="text/css">
+		#headerout {
+			display: none;
+		}
+
+		.plataformasout {
+		    display: none;
+		 }
+
+		 #lalocuraout {
+		    display: none;
+		 }
+
+		 .footerr {
+		    display: none;
+		 }
+
+		#logohomee {
+            cursor: pointer;
+        }
+
+		.fondo {
+			background-color: #3E3E3E;
+			height: 100%;
+		}
+
+		.cajaform {
+			background-color: #F7CC49;
+			height: 100%;
+			width: 50%;
+		}
+
+		.botonregistrate {
+			background-color: #3E3E3E;
+			border: 1px solid #3E3E3E;
+			color: white;
+			width: 100%;
+			font-size: 24px;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+
+		small {
+			color: #3E3E3E;
+		}
+
+		.cajainiciar {
+			background-color: #F7CC40;
+			height: 140px;
+		}
+
+		.botoninicia {
+			background-color: white;
+			border: 1px solid #F7CC49;
+			color: #3E3E3E;
+			width: 100%;
+			font-size: 24px;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+	</style>
+{% endblock %}
+<!-- Fin del bloque style -->
+
+<!-- Comienzo del bloque de contenido -->
+{% block content %}
+	<!-- Comienzo del header -->
+    <header class="container-fluid">
+        <div class="row pt-4">
+            <div class="col-md tituloh d-flex justify-content-center">
+                <strong id="logohomee">lalo</strong>
+            </div>
+        </div>
+    </header>
+    <!-- Fin del header -->
+
+    <!-- Comienzo del form -->
+	<div class="container-fluid fondo pt-5 pb-5">
+		<div class="container mb-0 cajaform pl-0 pr-0">
+			<div class="container-fluid text-center pt-3">
+				<p>¡Registrarte es fácil y rápido!</p>
+			</div>
+			<form class="ml-3 mr-3">
+				<div class="form-group font-weight-bold">
+					<p>Datos Personales</p>
+				</div>
+			    <div class="form-group mb-3">
+				    <label for="nombre">Nombre</label>
+				    <input type="text" class="form-control" id="nombre" placeholder="Introduzca su Nombre" required>
+			    </div>
+			    <div class="form-group mb-3">
+				    <label for="apellido">Apellido</label>
+				    <input type="text" class="form-control" id="apellido" placeholder="Introduzca su Apellido" required>
+			    </div>
+			    <div class="form-group mb-3">
+				    <label for="telefono">Teléfono</label>
+				    <input type="tel" class="form-control" id="telefono" placeholder="Introduzca su Teléfono" required>
+			    </div>
+			    <div class="form-group mb-5">
+				    <label for="direccion">Dirección</label>
+				    <textarea class="form-control" id="direccion" rows="5" placeholder="Aquí va el beta del mapa" required></textarea>
+			    </div>
+			    <div class="form-group font-weight-bold pt-2 border-top border-secondary">
+					<p>Datos de Inicio de Sesión</p>
+				</div>
+			    <div class="form-group">
+					<label for="correo">Correo Electrónico</label>
+					<input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Introduzca su Correo Electrónico" required>
+					<small id="emailHelp" class="form-text">¡Nunca compartiremos tu correo con nadie!</small>
+				</div>
+				<div class="form-group">
+					<label for="contraseña">Contraseña</label>
+					<input type="password" class="form-control" id="contraseña" placeholder="Introduzca su contraseña" required>
+				</div>
+				<div class="form-group">
+					<label for="ccontraseña">Confirmar Contraseña</label>
+					<input type="password" class="form-control" id="ccontraseña" placeholder="Confirme su contraseña" required>
+				</div>
+				<div class="form-group d-flex justify-content-center">
+			  		<button id="botonregistrate" type="submit" class="btn btn-lg botonregistrate mt-3">Registrate</button>
+			  	</div>
+			</form>
+
+			<div class="container-fluid mt-5 text-center cajainiciar mb-0 pt-3">
+				<p>¿Ya tienes una cuenta?</p>
+				<button id="botoninicia" type="text" class="btn btn-lg botoninicia">Inicia sesión</button>
+			</div>
+		</div>
+	</div>
+	<!-- Fin del form -->
+{% endblock %}
+<!-- Fin del bloque de contenido -->

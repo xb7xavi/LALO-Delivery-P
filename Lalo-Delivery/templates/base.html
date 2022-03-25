@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Comienzo del head -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap" rel="stylesheet"> 
+    {% block styles %}{% endblock %} <!-- Bloque de estilo externo -->
+
+    <!-- Comienzo de style -->
+    <style type="text/css">
+        body {
+            color: black;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.2em;
+        }
+
+        header {
+            height: 150px;
+            background-color: #F7CC49;
+            background: rgba(247,203,73,1);
+            background: -moz-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(247,203,73,1)), color-stop(71%, rgba(250,217,117,1)), color-stop(100%, rgba(247,203,73,1)));
+            background: -webkit-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -o-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: -ms-linear-gradient(left, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            background: linear-gradient(to right, rgba(247,203,73,1) 0%, rgba(250,217,117,1) 71%, rgba(247,203,73,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cb49', endColorstr='#f7cb49', GradientType=1 );
+        }
+
+        .tituloh {
+            font-size: 3.38em;
+        }
+
+        #logohome {
+            cursor: pointer;
+        }
+
+        .buttonbh {
+            background-color: black;
+            border: 2px solid black;
+            color: white;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .buttonah {
+            border: 2px solid black;
+            padding-left: 35px;
+            padding-right: 35px;
+            color: black;
+        }
+
+        .lalocurac {
+            height: 200px;
+            font-size: 2.34em;
+        }
+
+        .lalocura {
+            color: #F7CC49;
+        }
+
+        .plataformas {
+            height: 315px;
+            background-color: #7A7D7D;
+            background: rgba(122,125,125,1);
+            background: -moz-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(122,125,125,1)), color-stop(30%, rgba(165,165,165,1)), color-stop(35%, rgba(165,165,165,1)), color-stop(51%, rgba(122,125,125,1)), color-stop(100%, rgba(122,125,125,1)));
+            background: -webkit-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -o-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -ms-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: linear-gradient(to right, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a7d7d', endColorstr='#7a7d7d', GradientType=1 );
+        }
+
+        .disponibilidad {
+            font-size: 1.8em;
+            color: #F7CC49;
+
+        }
+
+        .disponibilidadp {
+            padding-left: 29px;
+        }
+
+        .imgmonitor {
+            width: 92%;
+        }
+
+        .botonesstore {
+            height: 47px;
+            width: 170px;
+        }
+
+        .footerr {
+            height: 250px;
+            background-color: #3E3E3E;
+            color: #F7CC49;
+        }
+
+        .tyb {
+            padding-left: 7.25%;
+            margin-top: 40px;
+        }
+
+        .titulof {
+            font-size: 60px;
+        }
+
+        .buttonaf {
+            color: #F7CC49;
+            border: 2px solid #F7CC49;
+            font-size: 22px;
+            border-radius: 0px;
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+
+        .buttonbf {
+            border: 2px solid #F7CC49;
+            background-color: #F7CC49;
+            color: black;
+            font-size: 22px;
+            border-radius: 0px;
+        }
+
+        .info {
+            text-align: right;
+            padding-right: 7.25%;
+            margin-top: 50px;
+            font-size: 25px;
+        }
+    </style>
+    <!-- Fin de style -->
+
+    <title>{% block title %}{% endblock %}</title> <!-- Bloque del título -->
+</head>
+<!-- Fin del head -->
+
+<!-- Comienzo del body -->
+<body>
+    <!-- Comienzo del header -->
+    <header id="headerout" class="container-fluid">
+        <div class="row pt-4 pl-3">
+            <div class="col-md-6 tituloh pl-5">
+                <strong id="logohome">lalo</strong>
+            </div>
+            <div class="col-md-6 pt-4 text-right">
+                <button id="botoningresahomearriba" type="button" class="btn btn-lg rounded-pill mr-3 buttonah ingresa">Ingresa</button>
+                <button id="botonregistratehomearriba" type="button" class="btn btn-lg rounded-pill mr-3 buttonbh registrate">Regístrate</button>
+            </div>
+        </div>
+    </header>
+    <!-- Fin del header -->
+
+    <!-- Comienzo del bloque de contenido -->
+	{% block content %}   
+
+
+    {% endblock %}
+    <!-- Fin del bloque de contenido -->
+
+    <!-- Comienzo de la sección de plataformas -->
+    <div class="container-fluid plataformas plataformasout">
+        <div class="row pl-xl-5 pl-md-1 h-100">
+            <div class="col-5 pt-5 pl-xl-5 pb-2 h-100">
+                <img class="h-100 imgmonitor" src="{{ url_for('static', filename = 'images/photo5154859803980441779.jpg') }}">
+            </div>
+            <div class="col">
+                <div class="row pl-xl-5 pt-lg-5">
+                    <div class="col pt-5 pl-xl-5 disponibilidad">
+                        <div class="pl-xl-5 text-center">
+                            <p class="pl-xl-5"><strong>Estamos diponibles para ti en todas las plataformas</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pr-2">
+                    <div class="col d-flex justify-content-end">
+                        <a href="#"><img class="botonesstore mr-lg-5 mr-md-2" src="{{ url_for('static', filename = 'images/btn_googleplay.png') }}"></a>
+                        <a href="#"><img class="botonesstore mr-lg-5 mr-md-2" src="{{ url_for('static', filename = 'images/btn_appstore.png') }}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de la sección de plataformas -->
+
+    <!-- Comienzo de la sección de lalocura -->
+    <div id="lalocuraout">
+        <div class="container-fluid lalocurac d-flex justify-content-center align-items-center flex-wrap font-weight-bold">
+            <p>Porque nos mueve</p><span class="lalocura">#LALOcuradeConsentirte</span>
+        </div>
+    </div>
+    <!-- Fin de la sección de lalocura -->
+
+    <!-- Comienzo del footer -->
+    <footer class="container-fluid footerr">
+        <div class="row">
+            <div class="col-md tyb">
+                <div class="row">
+                    <div class="col-md titulof ">
+                        <strong id="logohomefooter" style="cursor: pointer;">lalo</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <button id="botoningresahomeabajo" type="button" class="btn btn-lg mr-3 buttonaf ingresa">Ingresa</button>
+                        <button id="botonregistratehomeabajo" type="button" class="btn btn-lg buttonbf registrate">Registrate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md info">
+                <p class="mb-0"><strong>Contáctanos</strong></p>
+                <p class="mt-0 mb-0">contacto@lalodelivery.com</p>
+                <p class="mt-0 mb-0">+58 424 1191576</p>
+                <p class="mt-0">+58 414 3566184</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin del footer -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#botoncomidaapagado').hide();
+        $('#botonfarmaciaencendido').hide();
+        $('#botonlicoresencendido').hide();
+        $('#botonexpressencendido').hide();
+        $('#botongeneralencendido').hide();
+    </script>
+    <script type="text/javascript">
+        // Comienzo de los cambios de botones de las secciones y paneles
+        $('#botoncomidaapagado').click(() => {
+            $('.encendido').hide();
+            $('.apagado').show();
+            $('#botoncomidaapagado').hide();
+            $('#botoncomidaencendido').show();
+            $('.panel').hide();
+            $('#panelcomida').show();
+            $('#botonseccioncomidacaja').show();
+        })
+
+        $('#botonfarmaciaapagado').click(() => {
+            $('.encendido').hide();
+            $('.apagado').show();
+            $('#botonfarmaciaapagado').hide();
+            $('#botonfarmaciaencendido').show();
+            $('#botonfarmaciaencendido').addClass('arreglarcagada');
+            $('.panel').hide();
+            $('#panelfarmacia').show();
+            $('#botonseccionfarmaciacaja').show();
+        })
+
+        $('#botonlicoresapagado').click(() => {
+            $('.encendido').hide();
+            $('.apagado').show();
+            $('#botonlicoresapagado').hide();
+            $('#botonlicoresencendido').show();
+            $('.panel').hide();
+            $('#panellicores').show();
+            $('#botonseccionlicorescaja').show();
+        })
+
+        $('#botonexpressapagado').click(() => {
+            $('.encendido').hide();
+            $('.apagado').show();
+            $('#botonexpressapagado').hide();
+            $('#botonexpressencendido').show();
+            $('.panel').hide();
+            $('#panelexpress').show();
+            $('#botonseccionexpresscaja').show();
+        })
+
+        $('#botongeneralapagado').click(() => {
+            $('.encendido').hide();
+            $('.apagado').show();
+            $('#botongeneralapagado').hide();
+            $('#botongeneralencendido').show();
+            $('.panel').hide();
+            $('#panelgeneral').show();
+            $('#botonsecciongeneralcaja').show();
+        })
+        // Fin de los cambios de botones de las secciones y paneles
+
+        // Comienzo de los cambios de botones y textos de trabaja y vende con nosotros
+        $('#botonvconnosapagado').click(() => {
+            $('#botonvconnosapagado').hide();
+            $('#botonvconnosencendido').show();
+            $('#botontconnosencendido').hide();
+            $('#botontconnosapagado').show();
+            $('#tconnoscaja').hide();
+            $('#vconnoscaja').show();
+        })
+
+        $('#botontconnosapagado').click(() => {
+            $('#botontconnosapagado').hide();
+            $('#botontconnosencendido').show();
+            $('#botonvconnosencendido').hide();
+            $('#botonvconnosapagado').show();
+            $('#vconnoscaja').hide();
+            $('#tconnoscaja').show();
+        })
+        // Fin de los cambios de botones y textos de trabaja y vende con nosotros
+
+        // Comienzo de los links hacia las diferentes zonas de la página
+        $('#botonseccioncomida').click(() => {
+            location.href="{{ url_for("seccioncomida") }}"
+        })
+
+        $('#botonseccionfarmacia').click(() => {
+            location.href="{{ url_for("seccionfarmacia") }}"
+        })
+
+        $('#botonseccionlicores').click(() => {
+            location.href="{{ url_for("seccionlicores") }}"
+        })
+
+        $('#botonseccionexpress').click(() => {
+            location.href="{{ url_for("seccionexpress") }}"
+        })
+
+        $('#botonsecciongeneral').click(() => {
+            location.href="{{ url_for("secciongeneral") }}"
+        })
+
+        $('#logohome').click(() => {
+            location.href="{{ url_for("home") }}"
+        })
+
+        $('#logohomee').click(() => {
+            location.href="{{ url_for("home") }}"
+        })
+
+        $('#logohomefooter').click(() => {
+            location.href="{{ url_for("home") }}"
+        })
+
+        $('.empresa').click(() => {
+            location.href="{{ url_for("empresa") }}"
+        })
+
+        $('.registrate').click(() => {
+            location.href="{{ url_for("registrate") }}"
+        })
+
+        $('#botonregistratei').click(() => {
+            location.href="{{ url_for("registrate") }}"
+        })
+
+        $('.ingresa').click(() => {
+            location.href="{{ url_for("ingresa") }}"
+        })
+
+        $('#botoninicia').click(() => {
+            location.href="{{ url_for("ingresa") }}"
+        })
+        // Fin de los links hacia las diferentes zonas de la página
+
+        // Comienzo de los cambios de colores de los botones de iniciar sesión y registrarse 
+        $('#botonregistrate').mouseover(() => {
+            $('#botonregistrate').css("background-color", "white");
+        })
+
+        $('#botonregistrate').mouseout(() => {
+            $('#botonregistrate').css("background-color", "#3E3E3E");
+        })
+
+        $('#botoninicia').mouseover(() => {
+            $('#botoninicia').css("background-color", "#3E3E3E");
+            $('#botoninicia').css("color", "white");
+        })
+
+        $('#botoninicia').mouseout(() => {
+            $('#botoninicia').css("background-color", "white");
+            $('#botoninicia').css("color", "#3E3E3E");
+        })
+
+        $('#botonregistratei').mouseover(() => {
+            $('#botonregistratei').css("background-color", "#3E3E3E");
+            $('#botonregistratei').css("color", "white");
+        })
+
+        $('#botonregistratei').mouseout(() => {
+            $('#botonregistratei').css("background-color", "white");
+            $('#botonregistratei').css("color", "#3E3E3E");
+        })
+
+        $('#botoniniciai').mouseover(() => {
+            $('#botoniniciai').css("background-color", "white");
+        })
+
+        $('#botoniniciai').mouseout(() => {
+            $('#botoniniciai').css("background-color", "#3E3E3E");
+        })
+        // Fin de los cambios de colores de los botones de iniciar sesión y registrarse
+
+        // Inicio de los cambios de colores de los botones del home
+        $('#botoningresahomearriba').mouseover(() => {
+            $('#botoningresahomearriba').css("border", "none");
+            $('#botoningresahomearriba').css("color", "#F7CC49");
+            $('#botoningresahomearriba').css("background-color", "#3E3E3E");
+        })
+
+        $('#botoningresahomearriba').mouseout(() => {
+            $('#botoningresahomearriba').css("border", "2px solid black");
+            $('#botoningresahomearriba').css("color", "black");
+            $('#botoningresahomearriba').css("background-color", "transparent");
+        })
+
+        $('#botonregistratehomearriba').mouseover(() => {
+            $('#botonregistratehomearriba').css("border", "none");
+            $('#botonregistratehomearriba').css("color", "black");
+            $('#botonregistratehomearriba').css("background-color", "white");
+        })
+
+        $('#botonregistratehomearriba').mouseout(() => {
+            $('#botonregistratehomearriba').css("border", "2px solid black");
+            $('#botonregistratehomearriba').css("color", "white");
+            $('#botonregistratehomearriba').css("background-color", "black");
+        })
+
+        $('#botoncomidaapagado').mouseover(() => {
+            $('#botoncomidaapagado').css("background-color", "#F7CC49");
+        })
+
+        $('#botoncomidaapagado').mouseout(() => {
+            $('#botoncomidaapagado').css("background-color", "transparent");
+        })
+
+        $('#botonfarmaciaapagado').mouseover(() => {
+            $('#botonfarmaciaapagado').css("background-color", "#F7CC49");
+        })
+
+        $('#botonfarmaciaapagado').mouseout(() => {
+            $('#botonfarmaciaapagado').css("background-color", "transparent");
+        })
+
+        $('#botonlicoresapagado').mouseover(() => {
+            $('#botonlicoresapagado').css("background-color", "#F7CC49");
+        })
+
+        $('#botonlicoresapagado').mouseout(() => {
+            $('#botonlicoresapagado').css("background-color", "transparent");
+        })
+
+        $('#botonexpressapagado').mouseover(() => {
+            $('#botonexpressapagado').css("background-color", "#F7CC49");
+        })
+
+        $('#botonexpressapagado').mouseout(() => {
+            $('#botonexpressapagado').css("background-color", "transparent");
+        })
+
+        $('#botongeneralapagado').mouseover(() => {
+            $('#botongeneralapagado').css("background-color", "#F7CC49");
+        })
+
+        $('#botongeneralapagado').mouseout(() => {
+            $('#botongeneralapagado').css("background-color", "transparent");
+        })
+
+        $('.buttontiendas').mouseover(() => {
+            $('.buttontiendas').css("color", "black");
+            $('.buttontiendas').css("background-color", "#F7CC49");
+        })
+
+        $('.buttontiendas').mouseout(() => {
+            $('.buttontiendas').css("color", "white");
+            $('.buttontiendas').css("background-color", "#3E3E3E");
+        })
+
+        $('#botonconocemas').mouseover(() => {
+            $('#botonconocemas').css("color", "black");
+            $('#botonconocemas').css("background-color", "white");
+        })
+
+        $('#botonconocemas').mouseout(() => {
+            $('#botonconocemas').css("color", "black");
+            $('#botonconocemas').css("background-color", "#F7CC49");
+        })
+
+        $('.buttonpostulate').mouseover(() => {
+            $('.buttonpostulate').css("color", "#F7CC49");
+            $('.buttonpostulate').css("background-color", "#3E3E3E");
+        })
+
+        $('.buttonpostulate').mouseout(() => {
+            $('.buttonpostulate').css("color", "black");
+            $('.buttonpostulate').css("background-color", "#F7CC49");
+        })
+
+        $('#botoningresahomeabajo').mouseover(() => {
+            $('#botoningresahomeabajo').css("border", "none");
+            $('#botoningresahomeabajo').css("color", "black");
+            $('#botoningresahomeabajo').css("background-color", "white");
+        })
+
+        $('#botoningresahomeabajo').mouseout(() => {
+            $('#botoningresahomeabajo').css("border", "2px solid #F7CC49");
+            $('#botoningresahomeabajo').css("color", "#F7CC49");
+            $('#botoningresahomeabajo').css("background-color", "transparent");
+        })
+
+        $('#botonregistratehomeabajo').mouseover(() => {
+            $('#botonregistratehomeabajo').css("border", "none");
+            $('#botonregistratehomeabajo').css("color", "white");
+            $('#botonregistratehomeabajo').css("background-color", "black");
+        })
+
+        $('#botonregistratehomeabajo').mouseout(() => {
+            $('#botonregistratehomeabajo').css("border", "2px solid #F7CC49");
+            $('#botonregistratehomeabajo').css("color", "black");
+            $('#botonregistratehomeabajo').css("background-color", "#F7CC49");
+        })
+
+        $('.botonconnosencendido').mouseover(() => {
+            $('.botonconnosencendido').css("color", "white");
+        })
+
+        $('.botonconnosapagado').mouseover(() => {
+            $('.botonconnosapagado').css("background-color", "#F7CC49");
+        })
+
+        $('.botonconnosapagado').mouseout(() => {
+            $('.botonconnosapagado').css("background-color", "transparent");
+        })
+        // Fin de los cambios de colores de los botones del home
+
+        // Comienzo de cambios de tamaños de los iconos de las secciones de productos
+        $('#botonseccioncomida').mouseover(() => {
+            $('#iconocomida').css("width", "55px");
+        })
+        
+        $('#botonseccioncomida').mouseout(() => {
+            $('#iconocomida').css("width", "44px");
+        })
+
+        $('#botonseccionfarmacia').mouseover(() => {
+            $('#iconofarmacia').css("width", "55px");
+        })
+        
+        $('#botonseccionfarmacia').mouseout(() => {
+            $('#iconofarmacia').css("width", "44px");
+        })
+
+        $('#botonseccionlicores').mouseover(() => {
+            $('#iconolicores').css("width", "55px");
+        })
+        
+        $('#botonseccionlicores').mouseout(() => {
+            $('#iconolicores').css("width", "44px");
+        })
+
+        $('#botonseccionexpress').mouseover(() => {
+            $('#iconoexpress').css("width", "55px");
+        })
+        
+        $('#botonseccionexpress').mouseout(() => {
+            $('#iconoexpress').css("width", "44px");
+        })
+
+        $('#botonsecciongeneral').mouseover(() => {
+            $('#iconogeneral').css("width", "55px");
+        })
+        
+        $('#botonsecciongeneral').mouseout(() => {
+            $('#iconogeneral').css("width", "44px");
+        })
+        // Fin de cambios de tamaños de los iconos de las secciones de productos
+    </script>
+</body>
+<!-- Fin del body -->
+
+</html>
+
+<!-- col-mdORES: Amarillo: #F7CC49      Gris: #3E3E3E -->
+
+
+
+
+<!-- background-color: #7A7D7D;
+            background: rgba(122,125,125,1);
+            background: -moz-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(122,125,125,1)), color-stop(30%, rgba(165,165,165,1)), color-stop(35%, rgba(165,165,165,1)), color-stop(51%, rgba(122,125,125,1)), color-stop(100%, rgba(122,125,125,1)));
+            background: -webkit-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -o-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: -ms-linear-gradient(left, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            background: linear-gradient(to right, rgba(122,125,125,1) 0%, rgba(165,165,165,1) 30%, rgba(165,165,165,1) 35%, rgba(122,125,125,1) 51%, rgba(122,125,125,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7a7d7d', endColorstr='#7a7d7d', GradientType=1 ); -->

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Lalo Delivery Sección comida{% endblock %}
+
+<!-- Comienzo del bloque style -->
+{% block styles %}
+<style type="text/css">
+	.categoriagrande {
+        height: 115px;
+        font-size: 50px;
+        padding-top: 20px;
+       	border-radius: 20px;
+       	width: 350px;
+        }
+
+    .encendido {
+        background-color: #3E3E3E;
+        color: white;
+    }
+
+    .imagengrande {
+    	height: 75px;
+    	width: 75px;
+    }
+
+    .textcomidacaja {
+    	height: 100px;
+    }
+
+    .textocomida {
+    	font-size: 22px;
+    }
+
+    .nombrec {
+        height: 110px;
+    }
+
+    .empresa {
+       	height: 350px;
+       	width: 350px;
+       	text-align: center;
+        box-shadow: 10px 10px 10px #7A7D7D;
+        cursor: pointer;
+    }
+
+    .imagen {
+        height: 240px;
+        width: 350px;
+    }
+
+    .textoocategorias {
+    	font-size: 35px;
+    	margin-top: 300px;
+    }
+
+    .apuntador {
+    	cursor: pointer;
+    }
+</style>
+{% endblock %}
+<!-- Fin del bloque style -->
+
+<!-- Comienzo del bloque de contenido -->
+{% block content %}
+<div class="container-fluid pl-5">
+	<div class="row pl-5">
+		<div class="col d-flex align-items-center justify-content-between pt-5">
+			<div class="row categoriagrande encendido">
+				<div class="col-4 pl-4">
+					<img class="imagengrande" src="{{ url_for('static', filename = 'images/comida-amarillo.svg') }}">
+				</div>
+				<div class="col-8 ccentrado pt-1">
+					<p><strong>Comida</strong></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<button type="button" class="btn btn-lg mb-0 border">Barra de búsqueda</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pl-4 pt-4 mr-4 border-bottom border-dark pr-4 textcomidacaja">
+		<div class="col">
+			<p class="textocomida">Como nos mueve lalocura de consentirte, tenemos para ti las mejores comidas, postres y antojos de toda la ciudad</p>
+		</div>
+	</div>
+</div>
+
+{% include 'plantilla-empresas.html' without context %}
+
+<div class="container-fluid">
+	<div class="mr-4 ml-4 pt-5 row textoocategorias border-top border-dark">
+		<div class="col d-flex justify-content-center">
+			<p><strong>Otras Categorias</strong></p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid d-flex justify-content-center textocomida mb-5">
+	<div id="botonseccionfarmacia" class="d-flex border-right border-dark apuntador mr-1">
+		<img id="iconofarmacia" class="probando" src="{{ url_for('static', filename = 'images/farmacia-gris.svg') }}">
+		<p class="ml-lg-4 mr-lg-4 ml-md-3 mr-md-3 mt-3">Farmacia</p>
+	</div>
+	<div id="botonseccionlicores" class="d-flex border-right border-dark pl-4 apuntador mr-1">
+		<img id="iconolicores" src="{{ url_for('static', filename = 'images/licores-gris.svg') }}">
+		<p class="ml-lg-4 mr-lg-4 ml-md-3 mr-md-3 mt-3">Licores</p>
+	</div>
+	<div id="botonseccionexpress" class="d-flex border-right border-dark pl-4 apuntador mr-1">
+		<img id="iconoexpress" src="{{ url_for('static', filename = 'images/express-gris.svg') }}">
+		<p class="ml-lg-4 mr-lg-4 ml-md-3 mr-md-3 mt-3">Express</p>
+	</div>
+	<div id="botonsecciongeneral" class="d-flex pl-4 apuntador">
+		<img id="iconogeneral" src="{{ url_for('static', filename = 'images/general-gris.svg') }}">
+		<p class="ml-lg-4 mr-lg-4 ml-md-3 mr-md-3 mt-3">General</p>
+	</div>
+</div>
+{% endblock %}
+<!-- Fin del bloque de contenido -->

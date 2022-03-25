@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrate en Lalo Delivery{% endblock %}
+
+<!-- Comienzo del bloque style -->
+{% block styles %}
+	<style type="text/css">
+		#headerout {
+			display: none;
+		}
+
+		.plataformasout {
+		    display: none;
+		 }
+
+		 #lalocuraout {
+		    display: none;
+		 }
+
+		 .footerr {
+		    display: none;
+		 }
+
+		#logohomee {
+            cursor: pointer;
+        }
+
+		.fondo {
+			background-color: #3E3E3E;
+			height: 100%;
+		}
+
+		.cajaform {
+			background-color: #F7CC49;
+			height: 100%;
+			width: 50%;
+		}
+
+		.botonregistrate {
+			background-color: #3E3E3E;
+			border: 1px solid #3E3E3E;
+			color: white;
+			width: 100%;
+			font-size: 24px;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+
+		.botoninicia {
+			background-color: white;
+			border: 1px solid #F7CC49;
+			color: #3E3E3E;
+			width: 100%;
+			font-size: 24px;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+
+		.cajainiciar {
+			background-color: #F7CC40;
+		}
+	</style>
+{% endblock %}
+<!-- Fin del bloque style -->
+
+<!-- Comienzo del bloque de contenido -->
+{% block content %}
+<!-- Comienzo del header -->
+    <header class="container-fluid">
+        <div class="row pt-4">
+            <div class="col-md tituloh d-flex justify-content-center">
+                <strong id="logohomee">lalo</strong>
+            </div>
+        </div>
+    </header>
+    <!-- Fin del header -->
+
+    <!-- Comienzo del form -->
+	<div class="container-fluid fondo pt-5 pb-5">
+		<div class="container mb-0 cajaform pl-0 pr-0 pb-4">
+			<form class="ml-3 mr-3">
+			    <div class="form-group pt-3">
+					<label for="correo">Correo Electrónico</label>
+					<input type="email" class="form-control" id="correo" aria-describedby="emailHelp" placeholder="Introduzca su Correo Electrónico" required>
+				</div>
+				<div class="form-group">
+					<label for="contraseña">Contraseña</label>
+					<input type="password" class="form-control" id="contraseña" placeholder="Introduzca su contraseña" required>
+				</div>
+				<div class="form-group d-flex justify-content-center">
+			  		<button id="botoniniciai" type="submit" class="btn btn-lg botonregistrate mt-3">Inicia sesión</button>
+			  	</div>
+			</form>
+
+			<div class="container-fluid mt-5 text-center cajainiciar mb-0 pt-3">
+				<p>¿Aún no tienes cuenta en lalo?</p>
+				<button id="botonregistratei" type="text" class="btn btn-lg botoninicia">Registrate</button>
+			</div>
+		</div>
+	</div>
+	<!-- Fin del form -->
+{% endblock %}
+<!-- Fin del bloque de contenido -->
